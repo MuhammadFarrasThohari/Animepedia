@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const AnimeCards = ({ title }) => {
     return (
         <div
@@ -32,9 +30,14 @@ const AnimeCards = ({ title }) => {
                     example text to build on the card title and make up the bulk
                     of the card's content.
                 </p>
-                <Link to="#" className="btn btn-primary mt-auto">
-                    Test
-                </Link>
+                <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                        console.log("Tampilkan Detail");
+                    }}
+                >
+                    Tampilkan Detail
+                </button>
             </div>
         </div>
     );

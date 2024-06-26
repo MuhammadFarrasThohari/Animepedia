@@ -1,4 +1,12 @@
+import { useShowContext } from "../context/showContext";
+
 const AnimeCards = ({ title }) => {
+    const { setShow } = useShowContext();
+    const { setTtitle } = useShowContext();
+    const handleClick = () => {
+        setTtitle(title);
+        setShow(true);
+    };
     return (
         <div
             className="card m-2 p-1 flex-shrink-0"
@@ -33,7 +41,7 @@ const AnimeCards = ({ title }) => {
                 <button
                     className="btn btn-primary"
                     onClick={() => {
-                        console.log("Tampilkan Detail");
+                        handleClick();
                     }}
                 >
                     Tampilkan Detail

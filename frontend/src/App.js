@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ShowContextProvider } from "./context/showContext";
 import Home from "./screens/Home";
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
-        </Router>
+        <ShowContextProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </Router>
+        </ShowContextProvider>
     );
 };
 

@@ -7,20 +7,9 @@ import "swiper/css/navigation";
 import AnimeCards from "./AnimeCards";
 
 //import useEffect
-import { useEffect, useState } from "react";
-
+import { useShowContext } from "../context/showContext";
 const Header = () => {
-    const [animeList, setAnimeList] = useState([]);
-
-    useEffect(() => {
-        async function fetchAnime() {
-            const response = await fetch("/api/anime");
-            const json = await response.json();
-            console.log(json);
-            setAnimeList(json);
-        }
-        fetchAnime();
-    }, []);
+    const { animeList } = useShowContext();
 
     return (
         <header>

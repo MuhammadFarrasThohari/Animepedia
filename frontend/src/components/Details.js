@@ -1,6 +1,6 @@
 const Details = ({ title }) => {
     return (
-        <main className="container my-5">
+        <div className="container my-5">
             <div className="row">
                 <div className="col-md-4">
                     <img
@@ -17,7 +17,7 @@ const Details = ({ title }) => {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     );
 };
 

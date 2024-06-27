@@ -1,14 +1,13 @@
-import Details from "../components/Details";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useShowContext } from "../context/showContext";
+import Main from "../components/Main";
+import "../index.css";
 const Home = () => {
-    const { show } = useShowContext();
-    const { title } = useShowContext();
-
     return (
         <>
             <Header />
-            {show ? <Details title={title} /> : null}
+            <Main />
+            <Footer />
         </>
     );
 };

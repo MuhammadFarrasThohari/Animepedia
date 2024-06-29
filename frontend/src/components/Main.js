@@ -6,7 +6,6 @@ import AnimeCards from "./AnimeCards";
 import { useShowContext } from "../context/showContext";
 import Details from "./Details";
 import "../App.css";
-import { CSSTransition } from "react-transition-group";
 
 const Main = () => {
     const { animeList, show, title } = useShowContext();
@@ -28,15 +27,7 @@ const Main = () => {
                     ))}
                 </Swiper>
             </div>
-
-            <CSSTransition
-                in={show}
-                timeout={300}
-                classNames="details"
-                unmountOnExit
-            >
-                <Details title={title} />
-            </CSSTransition>
+            {show ? <Details title={title} /> : null}
         </main>
     );
 };

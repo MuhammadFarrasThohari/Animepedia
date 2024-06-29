@@ -9,25 +9,3 @@ main.container {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
-.details-enter {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
-.details-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.details-exit {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.details-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s, transform 0.3s;
-}

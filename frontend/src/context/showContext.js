@@ -7,7 +7,7 @@ export const ShowContextProvider = ({ children }) => {
 
     const [animeList, setAnimeList] = useState([]);
 
-    const [title, setTtitle] = useState("");
+    const [animeDetails, setAnimeDetails] = useState({});
 
     useEffect(() => {
         async function fetchAnime() {
@@ -21,7 +21,14 @@ export const ShowContextProvider = ({ children }) => {
 
     return (
         <ShowContext.Provider
-            value={{ show, setShow, animeList, setAnimeList, title, setTtitle }}
+            value={{
+                show,
+                setShow,
+                animeList,
+                setAnimeList,
+                animeDetails,
+                setAnimeDetails,
+            }}
         >
             {children}
         </ShowContext.Provider>

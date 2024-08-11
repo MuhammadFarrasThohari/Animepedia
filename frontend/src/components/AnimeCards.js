@@ -1,11 +1,11 @@
 import { useShowContext } from "../context/showContext";
 
-const AnimeCards = ({ title }) => {
+const AnimeCards = ({ anime }) => {
     const { setShow } = useShowContext();
-    const { setTtitle } = useShowContext();
+    const { setAnimeDetails } = useShowContext();
     const handleClick = () => {
-        setTtitle(title);
         setShow(true);
+        setAnimeDetails(anime);
     };
     return (
         <div
@@ -18,7 +18,7 @@ const AnimeCards = ({ title }) => {
                 className="card-img-top"
             />
             <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{title}</h5>
+                <h5 className="card-title">{anime.judul}</h5>
                 <p
                     className="card-text"
                     style={{

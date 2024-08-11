@@ -5,11 +5,12 @@ import "swiper/css/navigation";
 import AnimeCards from "./AnimeCards";
 import { useShowContext } from "../context/showContext";
 import Details from "./Details";
+import { CSSTransition } from "react-transition-group";
 import "../App.css";
-
+import { useRef } from "react";
 const Main = () => {
-    const { animeList, show, title } = useShowContext();
-
+    const { animeList, animeDetails, show } = useShowContext();
+    const nodeRef = useRef(null);
     return (
         <main className="container my-4">
             <div className="container">
@@ -22,12 +23,22 @@ const Main = () => {
                 >
                     {animeList.map((anime) => (
                         <SwiperSlide key={anime._id}>
-                            <AnimeCards title={anime.judul} />
+                            <AnimeCards anime={anime} />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
-            {show ? <Details title={title} /> : null}
+            <CSSTransition
+                in={show}
+                nodeRef={nodeRef}
+                timeout={300}
+                classNames="details"
+                unmountOnExit
+            >
+                <div ref={nodeRef}>
+                    <Details title={animeDetails.judul} />
+                </div>
+            </CSSTransition>
         </main>
     );
 };

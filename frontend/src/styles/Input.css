@@ -1,0 +1,45 @@
+.inputContainer {
+    width: 100%;
+}
+
+.inputJudul {
+    font-size: x-large;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.inputJudul::placeholder {
+    font-size: x-large;
+    font-weight: normal;
+}
+
+input:focus {
+    outline: none;
+}
+
+.inputDeskripsi {
+    font-size: large;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0.5rem;
+    resize: none;
+}
+
+.inputEpisode {
+    font-size: small;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0.5rem;
+    width: min-content;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

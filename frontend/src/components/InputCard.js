@@ -1,3 +1,6 @@
+import React from "react";
+
+import "../styles/Input.css";
 const InputCard = () => {
     return (
         <div
@@ -10,29 +13,31 @@ const InputCard = () => {
                 <img
                     src="https://via.placeholder.com/350"
                     alt="anime"
-                    className="rounded mr-3"
+                    className="rounded mx-3"
                     style={{
                         maxWidth: "350px",
                         height: "auto",
                         objectFit: "cover",
                     }}
+                    onClick={() => console.log("Image clicked")}
                 />
-                <div className="inputContainer d-flex flex-column ml-3">
+                <div className="inputContainer d-flex flex-column mx-3 justify-content-between">
                     <input
                         type="text"
-                        className="form-control mb-3 rounded"
+                        className=" inputJudul"
                         placeholder="Enter anime title"
                     />
                     <textarea
                         type="text"
-                        className="form-control mb-3 rounded"
-                        rows={3}
+                        className=" inputDeskripsi"
                         placeholder="Enter description"
+                        rows={4}
                     />
                     <input
                         type="number"
-                        className="form-control mb-3 rounded"
-                        placeholder="Enter rating"
+                        className="inputEpisode"
+                        placeholder="Episodes"
+                        min={0}
                     />
                 </div>
             </div>

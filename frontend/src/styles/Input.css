@@ -21,16 +21,17 @@ input:focus {
 }
 
 .inputDeskripsi {
+    flex: 1;
     font-size: large;
     background: transparent;
-    border: none;
-    border-bottom: 1px solid black;
+    border-radius: 0.5rem;
+    border-width: 2px;
     padding: 0.5rem;
     resize: none;
 }
 
 .inputEpisode {
-    font-size: small;
+    font-size: normal;
     background: transparent;
     border: none;
     border-bottom: 1px solid black;

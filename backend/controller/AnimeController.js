@@ -12,11 +12,13 @@ async function getAllAnime(req, res) {
 // Post an anime
 async function postAnime(req, res) {
     try {
-        const { judul, genre, jumlahEpisode } = req.body;
+        const { judul, genre, jumlahEpisode, deskripsi, gambar } = req.body;
         const anime = await Anime.create({
             judul,
             genre,
             jumlahEpisode,
+            deskripsi,
+            gambar,
         });
         res.status(200).json(anime);
     } catch (err) {

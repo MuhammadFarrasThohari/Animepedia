@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Anime = new mongoose.Schema({
+const Animasi = new mongoose.Schema({
     judul: {
         type: String,
         required: true,
@@ -13,6 +13,14 @@ const Anime = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    deskripsi: {
+        type: String,
+        required: true,
+    },
+    gambar: {
+        type: String,
+        required: true,
+    },
 });
 
-module.exports = mongoose.model("Anime", Anime);
+module.exports = mongoose.model("Animasi", Animasi);

@@ -8,14 +8,12 @@ const AnimeCards = ({ anime }) => {
         setAnimeDetails(anime);
     };
     return (
-        <div
-            className="card m-2 p-1 flex-shrink-0"
-            style={{ width: "300px", height: "500px" }}
-        >
+        <div className="card" style={{ width: "fit-content" }}>
             <img
-                src="https://placehold.co/300x300"
+                src={anime.gambar}
                 alt="Anime Thumbnail"
                 className="card-img-top"
+                style={{ height: "350px" }}
             />
             <div className="card-body d-flex flex-column">
                 <h5 className="card-title">{anime.judul}</h5>
@@ -30,13 +28,7 @@ const AnimeCards = ({ anime }) => {
                         height: "auto",
                     }}
                 >
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content. Some quick example text
-                    to build on the card title and make up the bulk of the
-                    card's content. Some quick example text to build on the card
-                    title and make up the bulk of the card's content. Some quick
-                    example text to build on the card title and make up the bulk
-                    of the card's content.
+                    {anime.deskripsi}
                 </p>
                 <button
                     className="btn btn-primary"

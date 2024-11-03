@@ -8,9 +8,12 @@ import Details from "./Details";
 import { CSSTransition } from "react-transition-group";
 import "../App.css";
 import { useRef } from "react";
+
 const Main = () => {
     const { animeList, animeDetails, show } = useShowContext();
-    const nodeRef = useRef(null);
+    const animeRef1 = useRef(null);
+    const animeRef2 = useRef(null);
+    const nodeRef = show ? animeRef1 : animeRef2;
     return (
         <main className="container my-4">
             <div className="container">
@@ -36,7 +39,7 @@ const Main = () => {
                 unmountOnExit
             >
                 <div ref={nodeRef}>
-                    <Details title={animeDetails.judul} />
+                    <Details animeDetails={animeDetails} />
                 </div>
             </CSSTransition>
         </main>

@@ -1,47 +1,34 @@
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimeCards from "./AnimeCards";
-import { useShowContext } from "../context/showContext";
 import Details from "./Details";
-import { CSSTransition } from "react-transition-group";
-import "../App.css";
-import { useRef } from "react";
+import { useShowContext } from "../context/showContext";
 
 const Main = () => {
     const { animeList, animeDetails, show } = useShowContext();
-    const animeRef1 = useRef(null);
-    const animeRef2 = useRef(null);
-    const nodeRef = show ? animeRef1 : animeRef2;
+
     return (
         <main className="container my-4">
             <div className="container">
                 <h2>Anime List</h2>
-                <Swiper
-                    modules={[Navigation]}
-                    spaceBetween={3}
-                    slidesPerView={4}
-                    navigation
-                >
+                <div className="swiper-container">
                     {animeList.map((anime) => (
-                        <SwiperSlide key={anime._id}>
-                            <AnimeCards anime={anime} />
-                        </SwiperSlide>
+                        <AnimeCards key={anime._id} anime={anime} />
                     ))}
-                </Swiper>
-            </div>
-            <CSSTransition
-                in={show}
-                nodeRef={nodeRef}
-                timeout={300}
-                classNames="details"
-                unmountOnExit
-            >
-                <div ref={nodeRef}>
-                    <Details animeDetails={animeDetails} />
                 </div>
-            </CSSTransition>
+            </div>
+            <AnimatePresence>
+                {show && (
+                    <motion.div
+                        key={animeDetails ? animeDetails._id : "empty"}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <Details animeDetails={animeDetails} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </main>
     );
 };

@@ -7,8 +7,8 @@ const Main = () => {
     const { animeList, animeDetails, show } = useShowContext();
 
     return (
-        <main className="container my-4 position-relative">
-            <div className="container ">
+        <main className="container my-4">
+            <div className="container">
                 <h2>Anime List</h2>
                 <div className="d-flex">
                     {animeList.map((anime) => (
@@ -16,14 +16,15 @@ const Main = () => {
                     ))}
                 </div>
             </div>
-            <AnimatePresence>
-                {show && (
+            <AnimatePresence mode="wait">
+                {show && animeDetails && (
                     <motion.div
-                        key={animeDetails ? animeDetails._id : "empty"}
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 1, ease: easeIn }}
+                        key={animeDetails._id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.3, ease: easeIn }}
+                        className="position-relative"
                     >
                         <Details animeDetails={animeDetails} />
                     </motion.div>

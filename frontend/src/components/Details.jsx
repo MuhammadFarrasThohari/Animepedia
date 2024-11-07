@@ -1,6 +1,6 @@
 const Details = ({ animeDetails }) => {
     return (
-        <div className="container my-5">
+        <div className="container my-5 position-absolute">
             <div className="row">
                 <div className="col-md-4">
                     <img

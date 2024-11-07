@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeIn } from "framer-motion";
 import AnimeCards from "./AnimeCards";
 import Details from "./Details";
 import { useShowContext } from "../context/showContext";
@@ -7,10 +7,10 @@ const Main = () => {
     const { animeList, animeDetails, show } = useShowContext();
 
     return (
-        <main className="container my-4">
-            <div className="container">
+        <main className="container my-4 position-relative">
+            <div className="container ">
                 <h2>Anime List</h2>
-                <div className="swiper-container">
+                <div className="d-flex">
                     {animeList.map((anime) => (
                         <AnimeCards key={anime._id} anime={anime} />
                     ))}
@@ -23,7 +23,7 @@ const Main = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 1, ease: easeIn }}
                     >
                         <Details animeDetails={animeDetails} />
                     </motion.div>

@@ -8,7 +8,7 @@ const AnimeCards = ({ anime }) => {
         setAnimeDetails(anime);
     };
     return (
-        <div className="card" style={{ width: "fit-content" }}>
+        <div className="card me-2" style={{ width: "fit-content" }}>
             <img
                 src={anime.gambar}
                 alt="Anime Thumbnail"

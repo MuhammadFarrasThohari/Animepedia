@@ -45,4 +45,25 @@ async function getAnimeById(req, res) {
     }
 }
 
-module.exports = { getAllAnime, postAnime, deleteAnime, getAnimeById };
+// Get an anime by name
+async function getAnimeByName(req, res) {
+    try {
+        // Membuat regex berdasarkan parameter judul, dengan case-insensitive
+        const searchPattern = new RegExp(req.params.judul, "i");
+
+        // Query menggunakan regex
+        const anime = await Anime.find({ judul: { $regex: searchPattern } });
+
+        res.status(200).json(anime);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+}
+
+module.exports = {
+    getAllAnime,
+    postAnime,
+    deleteAnime,
+    getAnimeById,
+    getAnimeByName,
+};

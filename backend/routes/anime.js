@@ -5,6 +5,7 @@ const {
     postAnime,
     deleteAnime,
     getAnimeById,
+    getAnimeByName,
 } = require("../controller/AnimeController");
 const router = express.Router();
 
@@ -15,5 +16,7 @@ router.post("/", postAnime);
 router.get("/:id", getAnimeById);
 
 router.delete("/:id", deleteAnime);
+
+router.get("/carijudul/:judul", getAnimeByName);
 
 module.exports = router;

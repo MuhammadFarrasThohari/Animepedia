@@ -21,8 +21,9 @@ mongoose
             console.log(`Server is running on port ${process.env.PORT}`); // Gunakan port dari .env
         });
     })
-    .catch((err) => {
+    .catch(async (err) => {
         console.log(err);
+        await mongoose.disconnect();
     });
 
 // Middleware

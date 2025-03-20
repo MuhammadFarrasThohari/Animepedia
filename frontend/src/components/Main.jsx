@@ -8,7 +8,7 @@ const Main = () => {
 
     return (
         <main className="container my-4">
-            <div className="container">
+            <div className="">
                 <h2>Anime List</h2>
                 <div className="d-flex">
                     {animeList.map((anime) => (

@@ -33,7 +33,7 @@ const Header = () => {
                 <div id="myDropdown" className="dropdown-content">
                     <a href="/">Cari Anime</a>
                     <a href="/input">Input Anime</a>
-                    <a href="/">Edit Anime</a>
+                    <a href="/edit">Edit Anime</a>
                 </div>
             </div>
         </header>

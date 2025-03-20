@@ -1,15 +1,15 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import InputCard from "../components/InputCard";
+import EditMain from "../components/EditMain";
 
-const Input = () => {
+const Edit = () => {
     return (
         <>
             <Header />
-            <InputCard />
+            <EditMain />
             <Footer />
         </>
     );
 };
 
-export default Input;
+export default Edit;

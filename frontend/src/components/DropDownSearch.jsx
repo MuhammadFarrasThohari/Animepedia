@@ -1,20 +1,25 @@
+import { motion } from "framer-motion";
+
 const DropDownSearch = ({ anime }) => {
     return (
         <div className="dropDownSearch w-100">
             <ul className="list-group">
                 {anime.map((anime) => (
-                    <li
+                    <motion.li
                         key={anime._id}
                         className="list-group-item"
                         style={{ cursor: "pointer" }}
+                        whileHover={{ backgroundColor: "#f8f9fa" }}
                     >
                         <div className="d-flex align-items-center">
                             <img
-                                src="https://placehold.co/75"
+                                src={anime.gambar}
                                 alt="anime"
                                 className="rounded"
                                 style={{
                                     objectFit: "cover",
+                                    height: "75px",
+                                    width: "75px",
                                 }}
                             ></img>
                             <div className="d-flex flex-column mx-3">
@@ -26,7 +31,7 @@ const DropDownSearch = ({ anime }) => {
                                 </span>
                             </div>
                         </div>
-                    </li>
+                    </motion.li>
                 ))}
             </ul>
         </div>

@@ -47,8 +47,9 @@ const EditMain = () => {
     };
 
     return (
-        <main className="container">
+        <main className="container my-4">
             <h1>Edit</h1>
+            <h2>Silahkan Cari Anime Yang Ingin di Edit</h2>
             <div className="">
                 <form className="my-4 align-items-center">
                     <div className="">
@@ -71,8 +72,21 @@ const EditMain = () => {
                         </div>
                     </div>
                 </form>
+                <div className="selectedAnime">
+                    <div className="d-flex">
+                        <img src="https://placehold.co/300" alt="anime" />
+                        <div className="animeDetails mx-4">
+                            <h3>Judul Anime</h3>
+                            <p>Genre</p>
+                            <p>Rating</p>
+                            <p>Deskripsi</p>
+                        </div>
+                    </div>
+                    <button type="button" className="btn btn-primary my-4">
+                        Konfirmasi Edit
+                    </button>
+                </div>
             </div>
-            <h2>Silahkan Cari Anime Yang Ingin di Edit</h2>
         </main>
     );
 };

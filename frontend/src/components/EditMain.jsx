@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import DropDownSearch from "./DropDownSearch";
+import EditDetailsAnime from "./EditDetailsAnime";
 
 const EditMain = () => {
     const [anime, setAnime] = useState("");
     const [debouncedAnime, setDebouncedAnime] = useState("");
     const [animeList, setAnimeList] = useState([]);
-
+    const [show, setShow] = useState(false);
+    const [animeDetails, setAnimeDetails] = useState({});
     // Menambahkan debouncing untuk mencegah terlalu banyak API request
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -46,6 +48,12 @@ const EditMain = () => {
         }
     };
 
+    const animeDetailsHandler = (anime) => {
+        setAnimeDetails(anime);
+        console.log("Anime details:", anime);
+        setShow(true);
+    };
+
     return (
         <main className="container my-4">
             <h1>Edit</h1>
@@ -68,24 +76,16 @@ const EditMain = () => {
                                 value={anime}
                                 onChange={(e) => setAnime(e.target.value)}
                             />
-                            {anime && <DropDownSearch anime={animeList} />}
+                            {anime && (
+                                <DropDownSearch
+                                    anime={animeList}
+                                    selectedAnime={animeDetailsHandler}
+                                />
+                            )}
                         </div>
                     </div>
                 </form>
-                <div className="selectedAnime">
-                    <div className="d-flex">
-                        <img src="https://placehold.co/300" alt="anime" />
-                        <div className="animeDetails mx-4">
-                            <h3>Judul Anime</h3>
-                            <p>Genre</p>
-                            <p>Rating</p>
-                            <p>Deskripsi</p>
-                        </div>
-                    </div>
-                    <button type="button" className="btn btn-primary my-4">
-                        Konfirmasi Edit
-                    </button>
-                </div>
+                {show && <EditDetailsAnime details={animeDetails} />}
             </div>
         </main>
     );

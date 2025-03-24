@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-const DropDownSearch = ({ anime }) => {
+const DropDownSearch = ({ anime, selectedAnime }) => {
+    const handleSelect = (anime) => {
+        selectedAnime(anime);
+    };
+
     return (
         <div className="dropDownSearch w-100">
             <ul className="list-group">
@@ -10,6 +14,7 @@ const DropDownSearch = ({ anime }) => {
                         className="list-group-item"
                         style={{ cursor: "pointer" }}
                         whileHover={{ backgroundColor: "#f8f9fa" }}
+                        onClick={() => handleSelect(anime)}
                     >
                         <div className="d-flex align-items-center">
                             <img

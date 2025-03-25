@@ -22,6 +22,7 @@ const InputCard = () => {
     }
 
     async function postAnime() {
+        setIsLoading(true);
         const judul = document.querySelector(".inputJudul").value;
         const deskripsi = document.querySelector(".inputDeskripsi").value;
         const jumlahEpisode = document.querySelector(".inputEpisode").value;
@@ -54,7 +55,11 @@ const InputCard = () => {
             },
             body: JSON.stringify(json),
         });
-        const result = await response.json();
+        const result = await response.json().then(() => {
+            setIsLoading(false);
+            window.alert("Anime added successfully!");
+            window.location.reload();
+        });
         console.log(result);
     }
 

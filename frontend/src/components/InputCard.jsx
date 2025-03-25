@@ -1,7 +1,9 @@
-import React from "react";
+import { useState } from "react";
 
 import "../styles/Input.css";
 const InputCard = () => {
+    const [isLoading, setIsLoading] = useState(false);
+
     function fileChange(event) {
         var image = document.getElementById("image");
         image.src = URL.createObjectURL(event.target.files[0]);
@@ -53,11 +55,7 @@ const InputCard = () => {
             body: JSON.stringify(json),
         });
         const result = await response.json();
-        if (result.status === "success") {
-            console.log("Anime added!");
-        } else {
-            console.log("Failed to add anime!");
-        }
+        console.log(result);
     }
 
     return (
@@ -100,10 +98,10 @@ const InputCard = () => {
                         placeholder="Enter anime title"
                     />
                     <select className="form-select my-2 genre">
-                        <option value="1">Action</option>
-                        <option value="2">Adventure</option>
-                        <option value="3">Comedy</option>
-                        <option value="4">Drama</option>
+                        <option value="Action">Action</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Drama">Drama</option>
                     </select>
                     <textarea
                         type="text"
@@ -120,6 +118,12 @@ const InputCard = () => {
                     <button
                         className="btn btn-primary mt-2"
                         onClick={() => postAnime()}
+                        style={
+                            isLoading
+                                ? { cursor: "not-allowed" }
+                                : { cursor: "pointer" }
+                        }
+                        disabled={isLoading}
                     >
                         Submit
                     </button>

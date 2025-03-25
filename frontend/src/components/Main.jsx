@@ -2,10 +2,20 @@ import { motion, AnimatePresence, easeIn } from "framer-motion";
 import AnimeCards from "./AnimeCards";
 import Details from "./Details";
 import { useShowContext } from "../context/showContext";
-
+import { useEffect, useState } from "react";
 const Main = () => {
-    const { animeList, animeDetails, show } = useShowContext();
+    const [animeList, setAnimeList] = useState([]);
+    const { animeDetails, show } = useShowContext();
 
+    useEffect(() => {
+        async function fetchAnime() {
+            const response = await fetch("/api/anime");
+            const json = await response.json();
+            console.log(json);
+            setAnimeList(json);
+        }
+        fetchAnime();
+    }, []);
     return (
         <main className="container my-4">
             <div className="">

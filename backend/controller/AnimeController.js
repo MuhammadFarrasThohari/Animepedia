@@ -60,10 +60,22 @@ async function getAnimeByName(req, res) {
     }
 }
 
+// Update an anime by ID
+async function updateAnime(req, res) {
+    try {
+        const anime = await Anime.findByIdAndUpdate(req.params.id, req.body);
+        console.log(anime);
+        res.status(200).json(anime);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+}
+
 module.exports = {
     getAllAnime,
     postAnime,
     deleteAnime,
     getAnimeById,
     getAnimeByName,
+    updateAnime,
 };

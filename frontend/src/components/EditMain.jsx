@@ -42,7 +42,7 @@ const EditMain = () => {
             }
             const json = await response.json();
             console.log("anime:", json);
-            setAnimeList(json);
+            setAnimeList(json.data);
         } catch (error) {
             console.error("Error fetching anime:", error);
         }

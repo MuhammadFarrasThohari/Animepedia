@@ -31,6 +31,7 @@ const InputCard = () => {
         const fileInput = document.getElementById("fileInput");
         if (fileInput.files.length === 0) {
             alert("Please upload an image!");
+            setIsLoading(false);
             return;
         }
 
@@ -48,19 +49,21 @@ const InputCard = () => {
         console.log(json);
 
         // Uncomment untuk mengirim ke server
-        const response = await fetch("/api/anime", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(json),
-        });
-        const result = await response.json().then(() => {
-            setIsLoading(false);
-            window.alert("Anime added successfully!");
+        try {
+            const response = await fetch("/api/anime", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(json),
+            });
+            window.alert("Anime berhasil ditambahkan!");
+            console.log(response);
             window.location.reload();
-        });
-        console.log(result);
+        } catch (err) {
+            console.error(err);
+        }
+        setIsLoading(false);
     }
 
     return (

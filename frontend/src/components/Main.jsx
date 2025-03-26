@@ -11,8 +11,13 @@ const Main = () => {
         async function fetchAnime() {
             const response = await fetch("/api/anime");
             const json = await response.json();
-            console.log(json);
-            setAnimeList(json);
+
+            if (json.status === "success") {
+                setAnimeList(json.data); // Simpan hanya data anime
+                console.log(json.data);
+            } else {
+                console.error("Gagal mengambil data:", json.error);
+            }
         }
         fetchAnime();
     }, []);

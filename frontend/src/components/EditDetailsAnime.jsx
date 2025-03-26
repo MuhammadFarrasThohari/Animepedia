@@ -5,6 +5,7 @@ const EditDetailsAnime = ({ details }) => {
     const [genre, setGenre] = useState(details.genre);
     const [jumlahEpisode, setJumlahEpisode] = useState(details.jumlahEpisode);
     const [gambar, setGambar] = useState(details.gambar);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setJudul(details.judul);
@@ -14,6 +15,7 @@ const EditDetailsAnime = ({ details }) => {
     }, [details]); // Memantau perubahan pada details
 
     const KonfirmasiEdit = async () => {
+        setIsLoading(true);
         const data = {
             judul,
             genre,
@@ -35,6 +37,7 @@ const EditDetailsAnime = ({ details }) => {
         } else {
             console.log("Failed to update");
         }
+        setIsLoading(false);
     };
 
     return (
@@ -101,6 +104,12 @@ const EditDetailsAnime = ({ details }) => {
                 type="button"
                 className="btn btn-primary my-4"
                 onClick={KonfirmasiEdit}
+                style={
+                    isLoading
+                        ? { cursor: "not-allowed" }
+                        : { cursor: "pointer" }
+                }
+                disabled={isLoading}
             >
                 Konfirmasi Edit
             </button>

@@ -3,6 +3,10 @@ import AnimeCards from "./AnimeCards";
 import Details from "./Details";
 import { useShowContext } from "../context/showContext";
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Main = () => {
     const [animeList, setAnimeList] = useState([]);
     const { animeDetails, show } = useShowContext();
@@ -13,7 +17,7 @@ const Main = () => {
             const json = await response.json();
 
             if (json.status === "success") {
-                setAnimeList(json.data); // Simpan hanya data anime
+                setAnimeList(json.data);
                 console.log(json.data);
             } else {
                 console.error("Gagal mengambil data:", json.error);
@@ -21,16 +25,43 @@ const Main = () => {
         }
         fetchAnime();
     }, []);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: Math.min(5, animeList.length),
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+        ],
+    };
+
     return (
         <main className="container my-4">
-            <div className="">
-                <h2>Anime List</h2>
-                <div className="d-flex">
-                    {animeList.map((anime) => (
-                        <AnimeCards key={anime._id} anime={anime} />
-                    ))}
-                </div>
-            </div>
+            <h2>Anime List</h2>
+            <Slider {...settings}>
+                {animeList.map((anime) => (
+                    <AnimeCards key={anime._id} anime={anime} className="" />
+                ))}
+            </Slider>
             <AnimatePresence mode="wait">
                 {show && animeDetails && (
                     <motion.div

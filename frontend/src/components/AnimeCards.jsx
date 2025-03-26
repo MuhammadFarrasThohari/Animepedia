@@ -8,7 +8,7 @@ const AnimeCards = ({ anime }) => {
         setAnimeDetails(anime);
     };
     return (
-        <div className="card me-2" style={{ width: "fit-content" }}>
+        <div className="card mx-2">
             <img
                 src={anime.gambar}
                 alt="Anime Thumbnail"
@@ -16,7 +16,7 @@ const AnimeCards = ({ anime }) => {
                 style={{ height: "350px" }}
             />
             <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{anime.judul}</h5>
+                <h5 className="card-title text-truncate">{anime.judul}</h5>
                 <p
                     className="card-text"
                     style={{

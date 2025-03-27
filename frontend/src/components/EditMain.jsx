@@ -55,37 +55,59 @@ const EditMain = () => {
     };
 
     return (
-        <main className="container my-4">
-            <h1>Edit</h1>
-            <h2>Silahkan Cari Anime Yang Ingin di Edit</h2>
-            <div className="">
-                <form className="my-4 align-items-center">
-                    <div className="">
-                        <label
-                            htmlFor="editAnime"
-                            className="form-label form-label-large mx-2 fs-4 w-auto"
-                            style={{ whiteSpace: "nowrap" }}
-                        >
-                            Judul Anime
-                        </label>
-                        <div className="d-flex flex-column">
-                            <input
-                                id="editAnime"
-                                type="text"
-                                className="form-control form-control-lg"
-                                value={anime}
-                                onChange={(e) => setAnime(e.target.value)}
-                            />
-                            {anime && (
-                                <DropDownSearch
-                                    anime={animeList}
-                                    selectedAnime={animeDetailsHandler}
-                                />
-                            )}
-                        </div>
+        <main className="container my-5">
+            <div className="card shadow-lg border-0">
+                <div className="card-header bg-primary text-white py-3">
+                    <h1 className="mb-0">Edit Anime</h1>
+                </div>
+                <div className="card-body bg-light">
+                    <div className="alert alert-info">
+                        <i className="bi bi-info-circle-fill me-2"></i>
+                        <h5 className="d-inline">
+                            Silahkan Cari Anime Yang Ingin di Edit
+                        </h5>
                     </div>
-                </form>
-                {show && <EditDetailsAnime details={animeDetails} />}
+
+                    <form className="my-4">
+                        <div className="mb-4">
+                            <label
+                                htmlFor="editAnime"
+                                className="form-label form-label-large fs-4 mb-2 text-primary"
+                            >
+                                <i className="bi bi-search me-2"></i>
+                                Judul Anime
+                            </label>
+                            <div className="position-relative">
+                                <input
+                                    id="editAnime"
+                                    type="text"
+                                    className="form-control form-control-lg shadow-sm border-primary"
+                                    placeholder="Ketik judul anime..."
+                                    value={anime}
+                                    onChange={(e) => setAnime(e.target.value)}
+                                />
+                                {anime && (
+                                    <div className="position-absolute w-100 z-index-1000">
+                                        <DropDownSearch
+                                            anime={animeList}
+                                            selectedAnime={animeDetailsHandler}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </form>
+
+                    {show && (
+                        <div className="mt-4 animate__animated animate__fadeIn">
+                            <h4 className="text-primary mb-3 border-bottom pb-2">
+                                <i className="bi bi-pencil-square me-2"></i>
+                                Detail Anime yang Akan Diedit
+                            </h4>
+                            <EditDetailsAnime details={animeDetails} />
+                        </div>
+                    )}
+                </div>
             </div>
         </main>
     );

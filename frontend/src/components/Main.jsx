@@ -27,7 +27,8 @@ const Main = () => {
     }, []);
 
     const settings = {
-        dots: true,
+        variableWidth: true,
+        adaptiveHeight: true,
         infinite: true,
         speed: 500,
         slidesToShow: Math.min(5, animeList.length),
@@ -57,9 +58,9 @@ const Main = () => {
     return (
         <main className="container my-4">
             <h2>Anime List</h2>
-            <Slider {...settings} className="">
+            <Slider {...settings} >
                 {animeList.map((anime) => (
-                    <AnimeCards key={anime._id} anime={anime} className="" />
+                    <AnimeCards key={anime._id} anime={anime}  />
                 ))}
             </Slider>
             <AnimatePresence mode="wait">

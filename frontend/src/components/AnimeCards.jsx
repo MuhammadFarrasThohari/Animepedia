@@ -13,7 +13,7 @@ const AnimeCards = ({ anime }) => {
                 src={anime.gambar}
                 alt="Anime Thumbnail"
                 className="card-img-top"
-                style={{ height: "350px" }}
+                style={{height: "350px"}}
             />
             <div className="card-body d-flex flex-column">
                 <h5 className="card-title text-truncate">{anime.judul}</h5>

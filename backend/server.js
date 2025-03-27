@@ -32,7 +32,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json({ limit: "2mb" }));
 
 // Handling request
 app.use("/api/anime", animeRoutes);

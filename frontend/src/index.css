@@ -4,7 +4,7 @@ body {
 }
 
 body::before {
-    height: 100dvh;
+    /* height: 100dvh; */
     content: "";
     position: fixed; /* Ubah absolute menjadi fixed */
     top: 0;
@@ -28,7 +28,7 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Gunakan min-height alih-alih height */
+    min-height: 100vh;
     position: relative;
     z-index: 1; /* Memastikan konten utama berada di atas elemen pseudo */
 }

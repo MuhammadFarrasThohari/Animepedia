@@ -68,7 +68,7 @@ const InputCard = () => {
 
     return (
         <div
-            className="container-lg flex my-2 p-4 shadow-sm rounded"
+            className="container-lg flex my-4 p-4 shadow-sm rounded"
             style={{ backgroundColor: "#f9f9f9" }}
         >
             <h2 className="mb-4">Input Anime</h2>

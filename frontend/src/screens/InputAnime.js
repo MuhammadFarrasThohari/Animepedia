@@ -4,11 +4,11 @@ import InputCard from "../components/InputCard";
 
 const Input = () => {
     return (
-        <>
+        <div style={{ minHeight: "100vh" }}>
             <Header />
             <InputCard />
-            <Footer />
-        </>
+            {/* <Footer /> */}
+        </div>
     );
 };
 

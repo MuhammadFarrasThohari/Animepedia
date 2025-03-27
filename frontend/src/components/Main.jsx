@@ -57,7 +57,7 @@ const Main = () => {
     return (
         <main className="container my-4">
             <h2>Anime List</h2>
-            <Slider {...settings}>
+            <Slider {...settings} className="">
                 {animeList.map((anime) => (
                     <AnimeCards key={anime._id} anime={anime} className="" />
                 ))}

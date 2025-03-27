@@ -3,6 +3,8 @@ import { ShowContextProvider } from "./context/showContext";
 import Home from "./screens/Home";
 import Input from "./screens/InputAnime";
 import Edit from "./screens/Edit";
+import Footer from "./components/Footer";
+
 const App = () => {
     return (
         <ShowContextProvider>
@@ -12,6 +14,7 @@ const App = () => {
                     <Route path="/input" element={<Input />} />
                     <Route path="/edit" element={<Edit />} />
                 </Routes>
+                <Footer />
             </Router>
         </ShowContextProvider>
     );

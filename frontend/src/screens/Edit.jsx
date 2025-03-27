@@ -4,11 +4,11 @@ import EditMain from "../components/EditMain";
 
 const Edit = () => {
     return (
-        <>
+        <div style={{ minHeight: "100vh" }}>
             <Header />
             <EditMain />
-            <Footer />
-        </>
+            {/* <Footer /> */}
+        </div>
     );
 };
 

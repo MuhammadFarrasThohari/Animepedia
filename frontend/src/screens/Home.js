@@ -4,11 +4,11 @@ import Main from "../components/Main";
 import "../index.css";
 const Home = () => {
     return (
-        <>
+        <div style={{minHeight: "100vh"}}>
             <Header />
             <Main />
-            <Footer />
-        </>
+            {/* <Footer /> */}
+        </div>
     );
 };
 
